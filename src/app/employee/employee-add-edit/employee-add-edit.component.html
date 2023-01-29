@@ -1,0 +1,96 @@
+
+
+<form [formGroup]="empFormDialog" (ngSubmit)="onEmpFormSubmit()" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between">
+                            <h2 style="color: #3f51b5;" >Add Employee </h2>
+                                <span  class="close"[mat-dialog-close]="false" >
+                                    <mat-icon  role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">close</mat-icon>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name </mat-label>
+                            <input matInput placeholder="First Name" formControlName="fname" >
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name </mat-label>
+                            <input matInput placeholder="Last Name" formControlName="lname">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date of birth </mat-label>
+                            <input matInput [matDatepicker]="picker" placeholder="Date of birth *" formControlName="dob">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+
+                          
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput placeholder="Email" formControlName="emailId">
+                            <mat-icon matSuffix>email</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input type="tel" matInput placeholder="Phone" formControlName="phone">
+                            <mat-icon matSuffix>phone</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Department </mat-label>
+                            <input type="tel" matInput placeholder="Department" formControlName="dept">
+                            <mat-icon matSuffix>account_balance</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                       <p>Profile Icon <sup></sup></p>
+                       <p *ngIf="data">Uploaded Image: {{data.profileIcon}}</p>
+                       <input  observeFiles class="file"  type="file" (change)="getFileDetails($event)" name="profileIcon"   placeholder="Profile Icon" formControlName="profileIcon" >
+                       <mat-error *ngIf="err" class="small text-danger">Please select profile icon.</mat-error>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-right">
+                            <button mat-raised-button color="primary" type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

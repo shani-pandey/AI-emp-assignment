@@ -1,0 +1,41 @@
+.row{
+    mat-form-field{width: 100%;}
+}
+span.mat-button-wrapper,mat-icon {color: #333333e0;}
+
+input.file{width: 100%;}
+input.file::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  input.file::before {
+    content: 'Choose files';
+    display: inline-block;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    width:120px;
+    text-align:center;
+    background: rgb(71,80,179);
+    background: linear-gradient(90deg, rgba(71,80,179,1) 0%, rgb(253 29 29 / 80%) 50%, rgb(172 27 147) 100%);
+    color: #fff;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    border-radius: 10px;
+  }
+  input.file:hover::before {
+    border-color: black;
+  }
+  input.file:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+  
+  input.file.ng-touched.ng-dirty.ng-valid {
+      width: 100%;
+  }

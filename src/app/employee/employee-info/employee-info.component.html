@@ -1,0 +1,56 @@
+<div class="header">
+    <h1 class="text-center pt-4 pb-4">Employee Assignment</h1>
+</div>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-right mb-4">
+            <button mat-raised-button color="primary" (click)="openAddEditDialog()"  >Create</button>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-md-4 col-lg-3 mb-4" *ngFor="let item of allEmployee">
+            <mat-card  class="mat-card mat-focus-indicator example-card">
+                <mat-card-header  class="mat-card-header justify-content-center">
+                  
+                    <mat-card-title  class="mat-card-title">
+                      <img  mat-card-image="" default="assets/images/icon-1.JPG" alt="" class="mat-card-image" style="height: 200px;" src="{{imgBasePath+item.profileIcon}}"/>
+                    </mat-card-title>
+                    <mat-card-subtitle  class="mat-card-subtitle text-center">
+                      <b> {{item.fname}} {{item.lname}}</b>
+                    </mat-card-subtitle>
+                  
+                </mat-card-header>
+                <mat-card-content  class="mat-card-content">
+                  <p  class="mb-1 mt-3">
+                    <b > Department: </b> {{item.dept}}
+                  </p>
+                  <p  class="mb-1">
+                    <b > Email: </b> {{item.emailId}}
+                  </p>
+                  <p >
+                    <b > Age: </b> {{item.dob | ageCal}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions  class="mat-card-actions">
+                  <div  class="text-right">
+                    <span (click)="openEditFormDialog(item)" >
+                      <mat-icon  role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font"> edit</mat-icon>
+                    </span>
+                    <!-- <span (click)="deleteEmployee(item.empId)">
+                      <mat-icon  role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font"> delete_outline</mat-icon>
+                    </span> -->
+                    <span (click)="openConfirmDialog(item.empId)">
+                      <mat-icon  role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font"> delete_outline</mat-icon>
+                    </span>
+                    
+                  </div>
+                </mat-card-actions>
+              </mat-card>
+        </div> 
+        
+        
+    
+    </div>
+</div>
