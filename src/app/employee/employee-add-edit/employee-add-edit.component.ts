@@ -60,18 +60,35 @@ export class EmployeeAddEditComponent implements OnInit {
         let dateSendingToServer:any = new DatePipe('en-US').transform(this.empFormDialog.value.dob, 'yyyy/MM/dd')
         dateSendingToServer = dateSendingToServer
         this.empFormDialog.value.dob = dateSendingToServer.split("/").join("-")
-        if(this.data.profileIcon){
+        
+        // if(this.data.profileIcon){
+        //   this.empFormDialog.value.profileIcon = this.data.profileIcon; 
+        //   console.log(this.empFormDialog.value.profileIcon)
+        // }
+        // else{
+        //   this.empFormDialog.value.profileIcon = this.iconName; 
+        //   console.log(this.empFormDialog.value.profileIcon)
+        // }
+
+        if(this.iconName==""){
           this.empFormDialog.value.profileIcon = this.data.profileIcon; 
+          console.log(this.empFormDialog.value.profileIcon)
         }
         else{
           this.empFormDialog.value.profileIcon = this.iconName; 
+          console.log(this.empFormDialog.value.profileIcon)
+          
         }
+
+
+        
            
 
         this._employeeService.updateEmployee(this.data.empId, this.empFormDialog.value).subscribe({
           next:(val:any)=>{
             this._employeeService.openSnackBar('Record updated successfully!','Close')
             this._dialogRef.close(true);
+            console.log(this.empFormDialog.value.profileIcon)
             
           },
           error:(err:any)=>{
